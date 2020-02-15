@@ -6,7 +6,6 @@
       %li.user-menu_log_out 
         = link_to destroy_user_session_path, method: :delete, class: "user-menu_log_out__btn" do
           ログアウト
-
     - else
       %li.user-menu_log_in
         = link_to new_user_session_path, class: "user-menu_log_in__btn" do
