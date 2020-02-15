@@ -1,0 +1,25 @@
+%header 
+  %h1 
+    掲示板
+  %ul.user-menu
+    - if user_signed_in? 
+      %li.user-menu_log_out 
+        = link_to destroy_user_session_path, method: :delete, class: "user-menu_log_out__btn" do
+          ログアウト
+    - else
+      %li.user-menu_log_in
+        = link_to new_user_session_path, class: "user-menu_log_in__btn" do
+          ログイン       
+      %li.user-menu_sign_in 
+        = link_to new_user_registration_path, class: "user-menu_sign_in__btn" do
+          新規登録
+
+    -# %li.user-menu_log_out 
+    -#   = link_to destroy_user_session_path, method: :delete, class: "user-menu_log_out__btn" do
+    -#     ログアウト
+    -# %li.user-menu_log_in
+    -#   = link_to new_user_session_path, class: "user-menu_log_in__btn" do
+    -#     ログイン       
+    -# %li.user-menu_sign_in 
+    -#   = link_to new_user_registration_path, class: "user-menu_sign_in__btn" do
+    -#     新規登録

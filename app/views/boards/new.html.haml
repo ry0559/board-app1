@@ -1,8 +1,17 @@
-.board-form
-  %p
-    いた作成ページ
-  = form_for(@board) do |f|
-    = f.text_field :title, class:"board-form-box", placeholder:"題名"
-    = f.file_field :image, class:"board-form-box"
-    = f.text_area :text, class:"board-form-box", placeholder:"題名"
-    = f.submit "いたを作る"
+.wrapper
+  = render 'shared/header'
+.board
+  .board-contents 
+    %p
+      いた作成ページ
+    .board-form
+      = form_for(@board) do |f|
+        %ul.board-form-list
+          %li.board-form-box
+            = f.text_field :title, class:"board-form-title", placeholder:"題名"
+          %li.board-form-box
+            = f.text_area :text, class:"board-form-text", placeholder:"テキスト"
+          %li.board-form-box
+            = f.file_field :image, class:"board-form-image"
+          %li.board-form-box
+            = f.submit "いたを作る", class:"board-form__btn"

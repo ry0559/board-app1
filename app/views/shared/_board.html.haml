@@ -1,0 +1,10 @@
+
+.board-contents
+  %ul.board-list 
+    = link_to new_board_path, class: "board-create-link__btn" do
+      板作成ページ
+    - @boards.each do |board|
+      %li.board-link
+        = board.title
+        = board.user.name
+        = board.text
