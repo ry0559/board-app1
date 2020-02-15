@@ -6,8 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-config.i18n.default_locale = :ja
-
 module BoardApp1
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

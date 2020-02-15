@@ -1,0 +1,8 @@
+.board-form
+  %p
+    いた作成ページ
+  = form_for(@board) do |f|
+    = f.text_field :title, class:"board-form-box", placeholder:"題名"
+    = f.file_field :image, class:"board-form-box"
+    = f.text_area :text, class:"board-form-box", placeholder:"題名"
+    = f.submit "いたを作る"
