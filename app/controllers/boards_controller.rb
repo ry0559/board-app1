@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index  
+    @boards = Board.all 
   end
 
   def new
