@@ -1,0 +1,7 @@
+ja:
+ activerecord:
+ models:
+ attributes:
+ board: 
+ title: タイトル
+ text: テキスト

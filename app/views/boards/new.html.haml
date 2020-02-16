@@ -9,9 +9,15 @@
         %ul.board-form-list
           %li.board-form-box
             = f.text_field :title, class:"board-form-title", placeholder:"題名"
+            - if @board.errors.messages[:title].any?
+              %p.error= @board.errors.messages[:title][0]
           %li.board-form-box
             = f.text_area :text, class:"board-form-text", placeholder:"テキスト"
+            - if @board.errors.messages[:text].any?
+              %p.error= @board.errors.messages[:text][0]
           %li.board-form-box
             = f.file_field :image, class:"board-form-image"
+            - if @board.errors.messages[:image].any?
+              %p.error= @board.errors.messages[:image][0]
           %li.board-form-box
             = f.submit "いたを作る", class:"board-form__btn"

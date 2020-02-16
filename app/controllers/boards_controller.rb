@@ -13,8 +13,9 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to root_path
+      redirect_to root_path, notice: '板が作成されました'
     else
+      flash.now[:alert] = '入力してください'
       render :new
     end
   end
