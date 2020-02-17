@@ -1,0 +1,36 @@
+.wrapper
+  = render 'shared/header'
+.board
+  .board-contents
+    %p
+      いた編集ページ
+    .board-form
+      = form_for(@board) do |f|
+        %ul.board-form-list
+          %li.board-form-box
+            = f.text_field :title, class:"board-form-title", placeholder:"題名"
+            - if @board.errors.messages[:title].any?
+              %p.error= @board.errors.messages[:title][0]
+          %li.board-form-box
+            = f.text_area :text, class:"board-form-text", placeholder:"テキスト"
+            - if @board.errors.messages[:text].any?
+              %p.error= @board.errors.messages[:text][0]
+          %li.board-form-box
+            = f.file_field :image, class:"board-form-image"
+            - if @board.errors.messages[:image].any?
+              %p.error= @board.errors.messages[:image][0]
+          %li.board-form-box
+            = f.submit "編集する", class:"btn btn-success btn-lg"
+    -# .board-contents-top
+    -#   %h1.board-contents-title
+    -#     = @board.title
+    -#   %p.board-contents-name
+    -#     ニックネーム：
+    -#     = @board.user.name
+    -#   %p.board-contents-image
+    -#     = image_tag @board.image.url, alt: "image", class: "board-contents-image"
+    -#   %p.board-contents-text
+    -#     = @board.text
+      
+    -# .board-contents-comment
+      

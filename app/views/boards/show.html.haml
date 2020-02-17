@@ -1,0 +1,18 @@
+.wrapper
+  = render 'shared/header'
+.board
+  .board-contents
+    .board-contents-top
+      %h1.board-contents-title
+        = @board.title
+      %p.board-contents-name
+        ニックネーム：
+        = @board.user.name
+      %p.board-contents-image
+        = image_tag @board.image.url, alt: "image", class: "board-contents-image"
+      %p.board-contents-text
+        = @board.text
+      %p
+      = link_to edit_board_path(@board.id) do
+        編集する
+    .board-contents-comment

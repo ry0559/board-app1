@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index  
-    @boards = Board.all 
+    @boards = Board.all.includes(:user).order("id ASC")
   
   
   end
@@ -19,11 +19,27 @@ class BoardsController < ApplicationController
       render :new
     end
   end
+  def show
+    @board = Board.find(params[:id])
+    
+  end
   
   def edit
+    @board = Board.find(params[:id])
+    if @board.user_id == current_user.id
+    else
+      redirect_to root_path
+    end
   end
   
   def update
+    @board = Board.find(params[:id])
+    if @board.user_id == current_user.id
+      @board.update(board_params)
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   private

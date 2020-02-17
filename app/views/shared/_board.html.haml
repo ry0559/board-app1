@@ -4,7 +4,8 @@
     = link_to new_board_path, class: "board-create-link__btn" do
       板作成ページ
     - @boards.each do |board|
-      %li.board-link
-        = board.title
-        = board.user.name
-        = board.text
+      = link_to board_path(board.id) do
+        %li.board-link
+          = board.title
+          = board.user.name
+          = board.text
