@@ -1,11 +1,22 @@
 
 .board-contents
+  - if flash[:notice] 
+    %p
+      = flash[:notice]
+
   %ul.board-list 
     = link_to new_board_path, class: "board-create-link__btn" do
       板作成ページ
     - @boards.each do |board|
       = link_to board_path(board.id) do
         %li.board-link
-          = board.title
-          = board.user.name
-          = board.text
+          .board-link-box
+            %p.board-image
+              = image_tag board.image.url, alt: "image", class: "board-link-image"
+            -# %P.board-user-name
+            -#   = board.user.name
+            .board-text-box  
+              %h3.board-title
+                = board.title
+              %P.board-text
+                = board.text

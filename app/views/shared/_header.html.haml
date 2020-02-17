@@ -1,18 +1,24 @@
 %header 
-  %h1 
-    掲示板
-  %ul.user-menu
-    - if user_signed_in? 
-      %li.user-menu_log_out 
-        = link_to destroy_user_session_path, method: :delete, class: "btn btn-success btn-sm" do
-          ログアウト
-    - else
-      %li.user-menu_log_in
-        = link_to new_user_session_path, class: "btn btn-secondary btn-sm" do
-          ログイン       
-      %li.user-menu_sign_in 
-        = link_to new_user_registration_path, class: "btn btn-primary btn-sm" do
-          新規登録
+  .header-upper
+    %p.borad-name
+      掲示板
+    %ul.user-menu
+      - if user_signed_in? 
+        %li.user-menu_log_out 
+          = link_to destroy_user_session_path, method: :delete, class: "btn btn-success btn-sm" do
+            ログアウト
+      - else
+        %li.user-menu_log_in
+          = link_to new_user_session_path, class: "btn btn-secondary btn-sm" do
+            ログイン       
+        %li.user-menu_sign_in 
+          = link_to new_user_registration_path, class: "btn btn-primary btn-sm" do
+            新規登録
+  .header-nav
+    %ul.board-page-link-list
+      %li.board-page-link
+      = link_to root_path, class:"page-link" do
+        板一覧へ
 
     -# %li.user-menu_log_out 
     -#   = link_to destroy_user_session_path, method: :delete, class: "user-menu_log_out__btn" do

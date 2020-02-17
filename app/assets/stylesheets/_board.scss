@@ -4,7 +4,7 @@
   background-color: gray;
   padding: 140px 0 150px 0;    
   .board-contents {
-    width: 820px;
+    width: 960px;
     height: 1500px;
     background-color: lightgray;
     margin: 0 auto;
@@ -15,12 +15,37 @@
       width: 480px;
       padding: 10px;
       background-color: bisque;
+      a:hover {
+        text-decoration: none;
+        
+        }
+        .board-link:hover {
+          border: solid 3px blue;
+        }
       .board-link {
         height: 100px;
         width: 100%;
         border: solid 1px black;
         margin-bottom: 10px;
-        
+        overflow: hidden;
+    
+        color: black;
+        .board-link-box {
+          display: flex;
+          .board-image {  
+            margin: 10px;
+
+            .board-link-image {
+              width: 80px;
+              height: 80px;
+            }
+          }
+          .board-title {
+            font-size: 15px;
+            margin: 10px ;
+            display: flex;
+          }
+        }
       }
     }
     // ーーーーーーー板作成formーーーーーー
@@ -51,6 +76,32 @@
             width: 60%;
           }
         }
+      }
+    }
+  }
+  // ーーーboard コンテンツーーー
+  .board-contents-top {
+    // height: 200px;
+    width: 600px;
+    padding: 10px;
+    .board-contents-top-box {
+      display: flex;
+      justify-content: space-between;
+      .board-contents-title {
+        margin: 10px 0px 10px;
+      }
+    }
+    .board-contents-image-text {
+      display: flex;
+    
+      .board-contents-text {
+        margin: 10px;
+        overflow: hidden;
+        height: 80px;
+      }
+      .board-contents-image {
+        width: 80px;
+        height: 80px;
       }
     }
   }

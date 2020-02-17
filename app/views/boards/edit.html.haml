@@ -20,19 +20,21 @@
             - if @board.errors.messages[:image].any?
               %p.error= @board.errors.messages[:image][0]
           %li.board-form-box
-            = f.submit "編集する", class:"btn btn-success btn-lg"
+            = f.submit "編集する", class:"btn btn-success btn-lg", id:"board-edit__btn"
           %li.board-form-box
-            = link_to "削除する", board_path(@board.id),method: :delete, class:"btn btn-success btn-lg"
-    -# .board-contents-top
-    -#   %h1.board-contents-title
-    -#     = @board.title
-    -#   %p.board-contents-name
-    -#     ニックネーム：
-    -#     = @board.user.name
-    -#   %p.board-contents-image
-    -#     = image_tag @board.image.url, alt: "image", class: "board-contents-image"
-    -#   %p.board-contents-text
-    -#     = @board.text
-      
-    -# .board-contents-comment
-      
+            = link_to "削除する", board_path(@board.id),method: :delete, class:"btn btn-success btn-lg", id:"board-delete__btn"
+                
+                
+            -# .board-contents-top
+            -#   %h1.board-contents-title
+            -#     = @board.title
+            -#   %p.board-contents-name
+            -#     ニックネーム：
+            -#     = @board.user.name
+            -#   %p.board-contents-image
+            -#     = image_tag @board.image.url, alt: "image", class: "board-contents-image"
+            -#   %p.board-contents-text
+            -#     = @board.text
+              
+            -# .board-contents-comment
+              

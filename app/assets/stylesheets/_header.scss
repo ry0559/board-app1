@@ -1,23 +1,34 @@
 body {
   .wrapper {
     width: 100%;
-    background-color: gray;
+    background-color: red;
     position: fixed;            /* ヘッダーの固定 */
     top: 0px;                   /* 位置(上0px) */
     left: 0px;            
     header {
-      display: flex;
       width: 960px;
-      height: 100px;
+      height: 150px;
       background-color: red;
       margin: 0 auto;
       padding: 20px; 
-      h1 {
-        padding: 15px;
-        margin: auto;
+      .header-upper {
+        display: flex;
+        justify-content: space-between;
+        .board-name {
+          padding: 15px;
+          margin: auto;
+          font-size: x-large;
+        }
+        .board-page-link {
+        }
+        .user-nenu {
+          
+        }
       }
-      .user-nenu {
-        
+      .header-nav {
+        background-color: palegoldenrod;
+        padding: 5px;
+      
       }
     }
   }

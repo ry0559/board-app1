@@ -2,8 +2,6 @@ class BoardsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index  
     @boards = Board.all.includes(:user).order("id ASC")
-  
-  
   end
 
   def new
@@ -36,7 +34,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     if @board.user_id == current_user.id
       @board.update(board_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '板が編集されました'
     else
       redirect_to root_path
     end
@@ -60,7 +58,6 @@ class BoardsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
-  
   end
 
 end
