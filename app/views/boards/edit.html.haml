@@ -21,6 +21,8 @@
               %p.error= @board.errors.messages[:image][0]
           %li.board-form-box
             = f.submit "編集する", class:"btn btn-success btn-lg"
+          %li.board-form-box
+            = link_to "削除する", board_path(@board.id),method: :delete, class:"btn btn-success btn-lg"
     -# .board-contents-top
     -#   %h1.board-contents-title
     -#     = @board.title

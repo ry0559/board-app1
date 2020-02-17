@@ -42,19 +42,25 @@ class BoardsController < ApplicationController
     end
   end
 
+  def destroy
+    @board = Board.find(params[:id])
+    if @board.user_id == current_user.id
+    @board.delete
+    redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+  
+
   private
   def board_params
     params.require(:board).permit( :title, :image, :text).merge(user_id: current_user.id)
   end
 
-
-  
-  
-
-  
-
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  
   end
 
 end
