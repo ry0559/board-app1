@@ -22,3 +22,9 @@
         -#   ニックネーム：
         -#   = @board.user.name
     .board-contents-comment
+      - if current_user
+        = form_for [@board, @comment] do |f|
+          = f.text_area :comment, class:"", placeholder:"コメントを入力"
+          = f.submit "コメントする", class:""
+
+
