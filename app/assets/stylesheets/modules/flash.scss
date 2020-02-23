@@ -1,10 +1,17 @@
 .error {
   color: red;
 }
+.notice-message {
+  color: green;
+}
+.flash-error-message {
+  color: red;
+}
 .notification {
+  
   .notice {
     background-color: blue;
-    color: white;
+    color:red;
     text-align: center;
   }
 

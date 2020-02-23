@@ -1,8 +1,39 @@
 .board-contents-top {
   border: solid 1px black;
 
-  
-  .board-contents-comment{
-
+}
+.board-contents-comment-form {
+  width: 600px;
+  height: 100px;
+  background-color: blue;
+  padding: 10px;
+  margin-top: 30px;
+  height: auto;
+  .board-contents-comment-form-box {
+    .comment-form-text {
+      width: 90%;
+      padding: 5px;
+    }
+    .board-contents-comment-form-box-btn {   
+      margin-top: 5px;
+    }
+  }
+}
+.board-contents-comment{
+  // height: 100%;
+  .board-comment {
+    width: 600px;
+    margin-top: 30px;
+    background-color: crimson;
+    padding: 5px;
+    display: flex;
+    .board-comment-user {
+      text-align: left;
+      padding-left: 10px;
+    }
+    .board-comment-text {
+      width: 500px;
+      margin-left: 20px;
+    }
   }
 }

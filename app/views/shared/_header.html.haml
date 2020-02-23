@@ -7,6 +7,9 @@
         %li.user-menu_log_out 
           = link_to destroy_user_session_path, method: :delete, class: "btn btn-success btn-sm" do
             ログアウト
+        %li.login-user
+          = "#{current_user.name}さん" 
+                    
       - else
         %li.user-menu_log_in
           = link_to new_user_session_path, class: "btn btn-secondary btn-sm" do

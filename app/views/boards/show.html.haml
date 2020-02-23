@@ -2,6 +2,12 @@
   = render 'shared/header'
 .board
   .board-contents
+    - if flash[:notice] 
+      %p.notice-message
+        = flash[:notice]
+    -# - elsif flash.now[:alert]
+    -#   %p.flash-error-message
+    -#     = flash.now[:alert]
     .board-contents-top
       .board-contents-top-box
         %h2.board-contents-title
@@ -21,10 +27,23 @@
         -# %p.board-contents-name
         -#   ニックネーム：
         -#   = @board.user.name
+    .board-contents-comment-form
+      .board-contents-comment-form-box  
+        - if current_user
+          = form_for [@board, @comment] do |f|
+            .board-contents-comment-form-box-text
+              = f.text_area :comment, class:"comment-form-text", placeholder:"コメントを入力"
+              - if @comment.errors.messages[:comment].any?
+                %p.error
+                  = @comment.errors.messages[:comment][0]
+            .board-contents-comment-form-box-btn  
+              = f.submit "コメントする", class:"btn btn-primary btn-sm"
+              
     .board-contents-comment
-      - if current_user
-        = form_for [@board, @comment] do |f|
-          = f.text_area :comment, class:"", placeholder:"コメントを入力"
-          = f.submit "コメントする", class:""
-
-
+      - if @comments
+        - @comments.each do |c|
+          %ul.board-comment
+            %li.board-comment-user
+              = c.user.name
+            %li.board-comment-text
+              = c.comment
