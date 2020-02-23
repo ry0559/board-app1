@@ -23,20 +23,34 @@
 }
 .board-contents-comment{
   // height: 100%;
-  .board-comment {
-    border-radius: 3px;
+  .board-comment-box {
     width: 600px;
-    margin-top: 30px;
     background-color: white;
-    padding: 5px;
-    display: flex;
-    .board-comment-user {
-      text-align: left;
-      padding-left: 10px;
+    border-radius: 3px;
+    .board-comment {
+      width: 600px;
+      margin-top: 30px;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      line-height: 30px;
+
+      .board-comment-user {
+        text-align: left;
+        padding-left: 10px;
+      }
+      .board-comment-time {
+        display: flex;
+        .fa-trash-alt {
+          margin-left: 10px;
+
+        }
+      }
     }
     .board-comment-text {
       width: 500px;
       margin-left: 20px;
+      padding-bottom: 10px;
     }
   }
 }

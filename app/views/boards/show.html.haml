@@ -42,11 +42,16 @@
     .board-contents-comment
       - if @comments
         - @comments.each do |c|
-          %ul.board-comment
-            %li.board-comment-user
-              = c.user.name
-            %li.board-comment-text
+          .board-comment-box
+            %ul.board-comment
+              %li.board-comment-user
+                = c.user.name 
+
+              %li.board-comment-time
+                = c.created_at
+                .board-comment-edit-btn
+                  = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
+                    %span
+                      %i.far.fa-trash-alt.fa-2x 
+            %p.board-comment-text
               = c.comment
-            %li.board-comment-edit-btn
-              = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
-                %i.far.fa-trash-alt.fa-1x 
