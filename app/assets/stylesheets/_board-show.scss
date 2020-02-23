@@ -1,30 +1,33 @@
 .board-contents-top {
-  border: solid 1px black;
+  border-radius: 3px;
 
 }
 .board-contents-comment-form {
   width: 600px;
   height: 100px;
-  background-color: blue;
+  background-color:  white;
   padding: 10px;
   margin-top: 30px;
   height: auto;
+  border-radius: 3px;
   .board-contents-comment-form-box {
     .comment-form-text {
-      width: 90%;
+      width: -webkit-fill-available;
       padding: 5px;
     }
     .board-contents-comment-form-box-btn {   
       margin-top: 5px;
+      text-align: end;
     }
   }
 }
 .board-contents-comment{
   // height: 100%;
   .board-comment {
+    border-radius: 3px;
     width: 600px;
     margin-top: 30px;
-    background-color: crimson;
+    background-color: white;
     padding: 5px;
     display: flex;
     .board-comment-user {

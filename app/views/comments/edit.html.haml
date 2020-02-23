@@ -1,0 +1,49 @@
+-# .wrapper
+-#   = render 'shared/header'
+-# .board
+-#   .board-contents
+-#     - if flash[:notice] 
+-#       %p.notice-message
+-#         = flash[:notice]
+-#     -# - elsif flash.now[:alert]
+-#     -#   %p.flash-error-message
+-#     -#     = flash.now[:alert]
+-#     .board-contents-top
+-#       .board-contents-top-box
+-#         %h2.board-contents-title
+-#           = @board.title
+-#         %p
+-#         = link_to edit_board_path(@board.id) do
+-#           %i.far.fa-edit.fa-2x 
+-#       .board-contents-image-text
+-#         %p.board-contents-image
+-#           = image_tag @board.image.url, alt: "image", class: "board-contents-image"
+-#         %p.board-contents-text#text-open
+-#           = @board.text
+-#       .board-contents-low-box   
+-#         %button#text-btn
+-#           表示
+          
+-#         -# %p.board-contents-name
+-#         -#   ニックネーム：
+-#         -#   = @board.user.name
+-#     .board-contents-comment-form
+-#       .board-contents-comment-form-box  
+-#         - if current_user
+-#           = form_for [@board, @comment], url: board_comments_path do |f|
+-#             .board-contents-comment-form-box-text
+-#               = f.text_area :comment, class:"comment-form-text", placeholder:"コメントを入力"
+-#               - if @comment.errors.messages[:comment].any?
+-#                 %p.error
+-#                   = @comment.errors.messages[:comment][0]
+-#             .board-contents-comment-form-box-btn  
+-#               = f.submit "編集する", class:"btn btn-primary btn-sm"
+              
+-#     .board-contents-comment
+-#       - if @comments
+-#         - @comments.each do |c|
+-#           %ul.board-comment
+-#             %li.board-comment-user
+-#               = c.user.name
+-#             %li.board-comment-text
+-#               = c.comment

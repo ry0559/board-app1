@@ -1,7 +1,8 @@
 class BoardsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   def index  
-    @boards = Board.all.includes(:user).order("id ASC")
+    @boards = Board.all.includes(:user)
+    # @boards = Board.all.joins(:comments).includes(:comments).order(id: :desc)
     
   end
 
@@ -21,7 +22,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @comment = Comment.new
-    @comments = @board.comments.includes(:user)
+    @comments = @board.comments.includes(:user).order("id ASC")
     
   end
   

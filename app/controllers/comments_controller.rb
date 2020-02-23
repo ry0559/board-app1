@@ -10,13 +10,30 @@ class CommentsController < ApplicationController
     end
   end
   
-  def edit
+  # def edit
+  #   # @comment = Comment.new
+  #   @comment = Comment.find(params[:id])
+  #   @comments = @board.comments.includes(:user)
+  #   # if @comments.user_id == current_user.id
+  #   # else  
+  #   #   redirect_to board_path
+  #   # end      
+  # end
+  def destroy
     @comment = Comment.find(params[:id])
-    if @comment.user_id == current_user.id
-    else  
-      redirect_to board_path
-    end      
+    if @comment.delete
+    redirect_to board_path (@board), notice: '削除されました'
+    end
+    
   end
+  
+  
+  # def update
+  #   binding.pry
+  #   @comment.update(comment_params)
+  #   redirect_to root_path
+
+  # end
   
 
 
@@ -28,8 +45,8 @@ class CommentsController < ApplicationController
 
   def set_board
     @board = Board.find(params[:board_id])
-    
   end
+  
   
   
 end

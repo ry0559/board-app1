@@ -47,3 +47,6 @@
               = c.user.name
             %li.board-comment-text
               = c.comment
+            %li.board-comment-edit-btn
+              = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
+                %i.far.fa-trash-alt.fa-1x 

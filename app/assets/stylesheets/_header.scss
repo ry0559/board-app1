@@ -1,19 +1,20 @@
 body {
   .wrapper {
     width: 100%;
-    background-color: red;
+    background-color: #333333;
     position: fixed;            /* ヘッダーの固定 */
     top: 0px;                   /* 位置(上0px) */
     left: 0px;            
     header {
-      width: 960px;
-      height: 150px;
-      background-color: red;
+      width: 1100px;
+      height: 120px;
+      background-color: #333333;
       margin: 0 auto;
-      padding: 20px; 
+      padding: 10px; 
       .header-upper {
         display: flex;
         justify-content: space-between;
+        color: #DDDDDD;
         .board-name {
           padding: 15px;
           margin: auto;
@@ -26,7 +27,7 @@ body {
         }
       }
       .header-nav {
-        background-color: palegoldenrod;
+        background-color: #333333;
         padding: 5px;
       
       }
