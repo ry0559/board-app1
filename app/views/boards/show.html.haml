@@ -48,7 +48,8 @@
                 = c.user.name 
 
               %li.board-comment-time
-                = c.created_at
+                = c.created_at.to_s(:simple)
+              - if  user_signed_in? && current_user.id == c.user_id 
                 .board-comment-edit-btn
                   = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
                     %span
