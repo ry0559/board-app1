@@ -1,0 +1,15 @@
+.wrapper
+  = render 'shared/header'
+.board
+  .board-contents
+    - if flash[:notice] 
+      %p.notice-message
+        = flash[:notice]
+    .board-contents-top
+      %h1 
+        マイページ
+      %p
+        = "名前 : #{ @user.name }"
+      %p
+        = "mail : #{ @user.email }"
+

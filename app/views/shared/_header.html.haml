@@ -6,7 +6,8 @@
       - if user_signed_in? 
         %li.user-menu_log_out 
           .login-user
-            = "ニックネーム : #{current_user.name}さん" 
+            = link_to user_path(current_user.id) do
+              = "ニックネーム : #{current_user.name}さん" 
           
             = link_to destroy_user_session_path, method: :delete, class: "btn btn-success btn-sm" do
               ログアウト

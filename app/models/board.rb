@@ -4,7 +4,7 @@ class Board < ApplicationRecord
   validates :title, presence: { message: "タイトルを入力してください"}, length: { maximum: 40, message: '40文字以内で入力してください' }
   validates :text, presence:  { message: "テキストを入力してください"}, length: { maximum: 500, message: '500文字以内で入力してください'}
   # validates :content, presence: true, unless: :image?
-  validates :image, presence: { message: "写真を選択してください"}
+  validates :image, 
   mount_uploader :image, ImageUploader
 end
 
