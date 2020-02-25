@@ -13,8 +13,12 @@
       = link_to board_path(board.id) do
         %li.board-link
           .board-link-box
-            %p.board-image
-              = image_tag board.image.url, alt: "image", class: "board-link-image"
+            - if board.image.blank?
+              %p.board-image
+                = image_tag 'no-image.jpg', alt: "image", class: "board-link-image"
+            - else
+              %p.board-image
+                = image_tag board.image.url, alt: "image", class: "board-link-image"
             -# %P.board-user-name
             -#   = board.user.name
             .board-text-box  

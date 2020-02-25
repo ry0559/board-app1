@@ -16,8 +16,12 @@
         = link_to edit_board_path(@board.id) do
           %i.far.fa-edit.fa-2x 
       .board-contents-image-text
-        %p.board-contents-image
-          = image_tag @board.image.url, alt: "image", class: "board-contents-image"
+        - if @board.image.blank? 
+          %p.board-contents-image
+            = image_tag 'no-image.jpg', alt: "image", class: "board-contents-image"
+        - else
+          %p.board-contents-image
+            = image_tag @board.image.url, alt: "image", class: "board-contents-image"
         %p.board-contents-text#text-open
           = @board.text
       .board-contents-low-box   
@@ -49,10 +53,10 @@
 
               %li.board-comment-time
                 = c.created_at.to_s(:simple)
-              - if  user_signed_in? && current_user.id == c.user_id 
-                .board-comment-edit-btn
-                  = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
-                    %span
-                      %i.far.fa-trash-alt.fa-2x 
+                - if user_signed_in? && current_user.id == c.user_id 
+                  .board-comment-edit-btn
+                    = link_to board_comment_path(@board, c),method: :delete, data: {confirm: "削除しますか？"} do
+                      %span
+                        %i.far.fa-trash-alt.fa-2x 
             %p.board-comment-text
               = c.comment

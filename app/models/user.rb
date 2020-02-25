@@ -5,5 +5,7 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_many :comments
   has_many :boards
-  validates :name, presence: true
+  validates :name, presence: true, length: {maximum: 10,}
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
 end

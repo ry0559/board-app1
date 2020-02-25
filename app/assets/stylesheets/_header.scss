@@ -20,9 +20,16 @@ body {
           margin: auto;
           font-size: x-large;
         }
-        .board-page-link {
+        .page-link {
+          display: block;
+          margin-top: 30px;
         }
         .user-menu {
+          .btn-outline-info {
+            background-color: #DDDDDD ;
+            
+            margin-bottom: 10px;
+          }
           .btn {
             margin-left: 10px;
           }

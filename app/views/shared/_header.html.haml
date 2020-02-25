@@ -2,6 +2,9 @@
   .header-upper
     %p.borad-name
       掲示板
+      %span
+        = link_to root_path, class:"page-link" do
+          板一覧へ
     %ul.user-menu
       - if user_signed_in? 
         %li.user-menu_log_out 
@@ -22,8 +25,7 @@
   .header-nav
     %ul.board-page-link-list
       %li.board-page-link
-      = link_to root_path, class:"page-link" do
-        板一覧へ
+      
 
     -# %li.user-menu_log_out 
     -#   = link_to destroy_user_session_path, method: :delete, class: "user-menu_log_out__btn" do
