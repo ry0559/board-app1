@@ -1,8 +1,32 @@
 require 'rails_helper'
 
+
 RSpec.describe Board, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-
+  describe '#create' do
+    context "保存できる場合" do
+      it "titleとtextが存在すれば保存できる" do
+        expect(build(:board)).to be_valid
+      end
+    end
     
-
+    context "保存できない場合" do
+      it "titleが無いと保存できない" do
+        board = build(:board, title: nil)
+        board.valid?
+        expect(board.errors[:title]).to include("タイトルを入力してください")
+      end
+      it "textが無いと保存できない" do
+        board = build(:board, text: nil)
+        board.valid?
+        expect(board.errors[:text]).to include("テキストを入力してください")
+      end
+      it "user_idが無いと保存できない" do
+        board = build(:board, user_id: nil)
+        board.valid?
+        expect(board.errors[:user]).to include("を入力してください")
+      end
+    end
+  end  
 end
+
+

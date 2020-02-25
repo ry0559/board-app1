@@ -43,6 +43,7 @@ describe User do
       expect(user).to be_valid
     end
 
+
     it "passwordが6文字以上であれば登録できること" do
       user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
