@@ -15,15 +15,20 @@ RSpec.describe Board, type: :model do
         board.valid?
         expect(board.errors[:title]).to include("タイトルを入力してください")
       end
+      it "titleが40文字以上は保存できない" do
+        board = build(:board, title: "アイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこ")
+        board.valid?
+        expect(board.errors[:title]).to include("40文字以内で入力してください")
+      end
       it "textが無いと保存できない" do
         board = build(:board, text: nil)
         board.valid?
         expect(board.errors[:text]).to include("テキストを入力してください")
       end
-      it "user_idが無いと保存できない" do
-        board = build(:board, user_id: nil)
+      it "textが500文字以上は保存できない" do
+        board = build(:board, text: "アイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこアイウエオかきくけこか")
         board.valid?
-        expect(board.errors[:user]).to include("を入力してください")
+        expect(board.errors[:text]).to include("500文字以内で入力してください")
       end
     end
   end  
