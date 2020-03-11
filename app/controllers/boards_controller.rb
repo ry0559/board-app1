@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  # before_action :move_to_index, except: [:index, :show]
   def index  
     @boards = Board.all.includes(:user)
     # @boards = Board.all.joins(:comments).includes(:comments).order(id: :desc)
